@@ -43,7 +43,7 @@ int main()
     return 0;
 }
 
-void tempconvertor();
+void tempconvertor()
 {
      char t;
 
@@ -206,7 +206,7 @@ void tempconvertor();
 
 }
 
-void currconvertor();
+void currconvertor()
 {
 char cu;
 
@@ -253,7 +253,7 @@ char cu;
 
 }
 
-void lenconvertor();
+void lenconvertor()
 {
 int cont =1;
 while (cont==1)
