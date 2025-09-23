@@ -216,7 +216,7 @@ char cu;
     if (cu != 'D' && cu != 'R' && cu != 'd' && cu != 'r')
     {
         printf("ERROR enter correct key\n");
-        return 1;
+        return;
     }
 
     else
@@ -266,7 +266,7 @@ int input,i;
     if (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6)
     {
         printf ("ERROR enter correct key\n");
-        return 1;
+        return ;
     }
     else 
     {
@@ -688,7 +688,7 @@ int input,i;
 
 
 int choice; 
-    {
+    
 
     do{
     printf("\nWhat would you like to do?\n");
@@ -710,10 +710,10 @@ int choice;
     else 
     {
         printf("Invalid choice! Please enter 1 or 2.\n");
-        return 1;
+        return ;
     }
 }
 while (choice !=1 && choice !=2);
-}
+
 } 
 }
