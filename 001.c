@@ -1,10 +1,13 @@
 
 #include <stdio.h>
 
+//convertor functions
 void tempconvertor();
 void currconvertor();
 void lenconvertor();
 void weightconvertor();
+
+//utility functions
 void kgpound();
 void gramounc();
 
@@ -757,7 +760,6 @@ void weightconvertor()
 
     return;
 }
-
 void kgpound()
 {
     float kg;
@@ -800,4 +802,3 @@ void gramounc()
     float ounces = grams * 0.035274;
     printf("%.2f Grams is %.2f Ounces", grams, ounces);
 }
-//weight convertor
