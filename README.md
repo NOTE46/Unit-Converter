@@ -43,3 +43,14 @@ The program is menu-driven, validates user input, and prevents invalid entries.
 3. Compile using:  
    ```bash
    gcc converter.c -o converter
+
+---
+##  Example Usage
+   ```bash
+Operation and their keys:
+Temperature Converter:1
+Currency Converter:2
+Length/Distance Converter:3
+Weight Converter:4
+Time Converter:5
+ENTER OPERATION TO CONVERT: 1
