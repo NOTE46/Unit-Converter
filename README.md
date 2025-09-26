@@ -1,2 +1,45 @@
-# Convertor
-This is a Multi-Purpose Converter Program written in C that allows users to easily convert between different units. The program is menu-driven and uses separate functions to handle each type of conversion, making it structured and easy to extend.
+# Unit Converter in C
+
+## 📌 Project Overview
+This is a **console-based unit converter** written in C.  
+It allows conversion between different units of **temperature, currency, length, weight, and time**.  
+The program is menu-driven, validates user input, and prevents invalid entries.  
+
+---
+
+##  Features
+- **Temperature Converter**   
+  - Celsius ↔ Fahrenheit ↔ Kelvin  
+
+- **Currency Converter**   
+  - Rupee ↔ Dollar *(hardcoded: 1 USD = 84 INR)*  
+
+- **Length/Distance Converter**   
+  - Kilometer, Meter, Centimeter, Miles, Inches, Feet  
+
+- **Weight Converter**  
+  - Kilogram ↔ Pounds  
+  - Grams ↔ Ounces  
+
+- **Time Converter**   
+  - Seconds ↔ Minutes ↔ Hours  
+
+- **Error Handling**  
+  - Detects invalid keys  
+  - Keeps asking until valid input is entered  
+
+---
+
+##  Tech Stack
+- **Language**: C  
+- **Compiler**: GCC / MinGW / Any standard C compiler  
+- **Platform**: Console application (Linux, Windows, macOS)  
+
+---
+
+##  How to Run
+1. Clone or download the project folder.  
+2. Open terminal/command prompt in the folder.  
+3. Compile using:  
+   ```bash
+   gcc converter.c -o converter
