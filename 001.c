@@ -17,6 +17,9 @@ void error();
 
 int main()
 {
+    int loop = 1; 
+    while (loop==1)
+    {
     int o;
     char t;
     printf("Operation and there keys:\nTemperature Converter:1\nCurrency Converter:2\nLength/Distance Converter:3\nWeight Converter:4\nTime Converter:5\nENTER OPERATION TO CONVERT:");
@@ -25,7 +28,7 @@ int main()
     if (o != 1 && o != 2 && o != 3 && o != 4 && o != 5)
     {
         printf("Error please enter correct key");
-        return 1;
+        continue;
     }
     else
     {
@@ -59,7 +62,32 @@ int main()
         }
         }
     }
+    int choice1; 
+    
+    do{
+    printf("\nWhat would you like to do?\n");
+    printf("1. Convert again\n");
+    printf("2. Exit program\n");
+    printf("Enter choice (1 or 2): ");
+    scanf("%d", &choice1);
 
+    if (choice1==1)
+    {
+        loop=1;
+        break;
+    }
+    else if (choice1==2)
+    {
+        loop=0;
+        break;
+    }
+    else 
+    {
+        printf("Invalid choice! Please enter 1 or 2.\n");
+            }
+}
+while (choice1 !=1 && choice1 !=2);
+}
     return 0;
 }
 
