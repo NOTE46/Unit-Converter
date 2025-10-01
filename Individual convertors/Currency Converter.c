@@ -6,7 +6,7 @@ void rupee();
 void error();
 void rate();
 
-float rates;
+double rates;
 
 int main()
 {
@@ -102,7 +102,7 @@ void dollar()
 
         double dolar = amount / rates;
 
-    printf("Rupee %lf is %lf Dollar\n", amount, dolar);
+    printf("Rupee %.2lf is %.2lf Dollar\n", amount, dolar);
 }
 
 void rupee()
@@ -122,7 +122,7 @@ void rupee()
     
     double dolar = amount * rates;
 
-    printf("Dollar %lf is %lf Rupee", amount, dolar);
+    printf("Dollar %.2lf is %.2lf Rupee\n", amount, dolar);
 }
 
 void error()
@@ -138,7 +138,7 @@ void rate()
     do {
 
     printf ("Enter current exchange rate in INR: ");
-    r =scanf("%f",&rates);
+    r =scanf("%lf",&rates);
 
     if (r!=1)
     {
@@ -146,5 +146,5 @@ void rate()
     }
 }while (r!=1);
 
-printf ("The exchange rate entered is %f INR",rates);
+printf ("The exchange rate entered is %.2lf INR.\n",rates);
 }
