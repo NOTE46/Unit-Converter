@@ -1,93 +1,101 @@
 
 #include <stdio.h>
 
-//convertor functions
+// convertor functions
 void tempconvertor();
 void currconvertor();
 void lenconvertor();
 void weightconvertor();
 void timeconvertor();
 
-//utility functions
+// utility
+void error();
 void kgpound();
 void gramounc();
 void secmin();
 void minhr();
-void error();
+void dollar();
+void rupee();
 
 int main()
 {
-    int loop = 1; 
-    while (loop==1)
+    int loop = 1;
+    while (loop == 1)
     {
-    int o;
-    char t;
-    printf("Operation and there keys:\nTemperature Converter:1\nCurrency Converter:2\nLength/Distance Converter:3\nWeight Converter:4\nTime Converter:5\nENTER OPERATION TO CONVERT:");
-    scanf("%d", &o);
-
-    if (o != 1 && o != 2 && o != 3 && o != 4 && o != 5)
-    {
-        printf("Error please enter correct key");
-        continue;
-    }
-    else
-    {
-        switch (o)
+        int o;
+        char t;
+        printf("\nOperation and there keys:\nTemperature Converter:1\nCurrency Converter:2\nLength/Distance Converter:3\nWeight Converter:4\nTime Converter:5\nENTER OPERATION TO CONVERT: ");
+        int scan = scanf("%d", &o);
+        if (scan != 1)
         {
-        case 1:
+            error();
+        }
+        else
         {
-            tempconvertor();
-            break;
-        }
-
-        case 2:
-        {
-            currconvertor();
-            break;
-        }
-        case 3:
-        {
-            lenconvertor();
-            break;
-        }
-        case 4:
-        {
-            weightconvertor();
-            break;
-        }
-        case 5:
-        {
-            timeconvertor();
-            break;
-        }
-        }
-    }
-    int choice1; 
-    
-    do{
-    printf("\nWhat would you like to do?\n");
-    printf("1. Convert again\n");
-    printf("2. Exit program\n");
-    printf("Enter choice (1 or 2): ");
-    scanf("%d", &choice1);
-
-    if (choice1==1)
-    {
-        loop=1;
-        break;
-    }
-    else if (choice1==2)
-    {
-        loop=0;
-        break;
-    }
-    else 
-    {
-        printf("Invalid choice! Please enter 1 or 2.\n");
+            if (o != 1 && o != 2 && o != 3 && o != 4 && o != 5)
+            {
+                printf("Error please enter correct key\n");
+                continue;
             }
-}
-while (choice1 !=1 && choice1 !=2);
-}
+            else
+            {
+                switch (o)
+                {
+                case 1:
+                {
+                    tempconvertor();
+                    break;
+                }
+
+                case 2:
+                {
+                    currconvertor();
+                    break;
+                }
+                case 3:
+                {
+                    lenconvertor();
+                    break;
+                }
+                case 4:
+                {
+                    weightconvertor();
+                    break;
+                }
+                case 5:
+                {
+                    timeconvertor();
+                    break;
+                }
+                }
+            }
+            int choice1;
+
+            do
+            {
+                printf("\nWhat would you like to do?\n");
+                printf("1. Convert again\n");
+                printf("2. Exit program\n");
+                printf("Enter choice (1 or 2): ");
+                scanf("%d", &choice1);
+
+                if (choice1 == 1)
+                {
+                    loop = 1;
+                    break;
+                }
+                else if (choice1 == 2)
+                {
+                    loop = 0;
+                    break;
+                }
+                else
+                {
+                    printf("Invalid choice! Please enter 1 or 2.\n");
+                }
+            } while (choice1 != 1 && choice1 != 2);
+        }
+    }
     return 0;
 }
 
@@ -253,50 +261,97 @@ void tempconvertor()
     }
 }
 
+// currency convertor
 void currconvertor()
 {
-    char cu;
-
-    printf("Dollar-D\nRupee-R\nEnter currency you want to convert:");
-    scanf(" %c", &cu);
-
-    if (cu != 'D' && cu != 'R' && cu != 'd' && cu != 'r')
+    int cs = 1;
+    while (cs == 1)
     {
-        printf("ERROR enter correct key\n");
-        return;
+        char cu;
+
+        printf("Dollar-D\nRupee-R\nEnter currency you want to convert: ");
+        scanf(" %c", &cu);
+
+        if (cu != 'D' && cu != 'R' && cu != 'd' && cu != 'r')
+        {
+            printf("ERROR enter correct key\n");
+            continue;
+        }
+        else
+        {
+            switch (cu)
+            {
+            case 'D':
+            case 'd':
+            {
+                dollar();
+                break;
+            }
+
+            case 'R':
+            case 'r':
+            {
+                rupee();
+                break;
+            }
+            }
+        }
+
+        int choice;
+
+        do
+        {
+            printf("\nWhat would you like to do?\n");
+            printf("1. Convert another currency\n");
+            printf("2. Exit program\n");
+            printf("Enter choice (1 or 2): ");
+            int a = scanf("%d", &choice);
+
+            if (a != 1)
+            {
+                printf("ERROR, Enter right command\n");
+                while (getchar() != '\n')
+                    ;
+            }
+            else
+            {
+
+                if (choice == 1)
+                {
+                    cs = 1;
+                    break;
+                }
+                else if (choice == 2)
+                {
+                    printf("Conversion complete. Thank you for using the currency converter.");
+                    cs = 0;
+                    break;
+                }
+                else
+                {
+                    printf("Invalid choice! Please enter 1 or 2.\n");
+                }
+            }
+        } while (choice != 1 && choice != 2);
     }
+}
+void dollar()
+{
+    int amount;
+    printf("Enter amount in rupee: ");
+    scanf("%d", &amount);
+    float dolar = amount / 84.0;
 
-    else
-    {
+    printf("Rupee %d is %g Dollar", amount, dolar);
+}
+void rupee()
+{
+    int amount;
+    printf("Enter amount in Dollar: ");
+    scanf("%d", &amount);
+    float dolar = amount * 84.0;
 
-        switch (cu)
-        {
-        case 'D':
-        case 'd':
-        {
-            int amount;
-            printf("Enter amount in rupee:");
-            scanf("%d", &amount);
-            float dolar = amount / 84.0;
-
-            printf("Rupee %d is %g Dollar", amount, dolar);
-
-            break;
-        }
-
-        case 'R':
-        case 'r':
-        {
-            int amount;
-            printf("Enter amount in Dollar:");
-            scanf("%d", &amount);
-            float dolar = amount * 84.0;
-
-            printf("Dollar %d is %g Rupee", amount, dolar);
-            break;
-        }
-        }
-    }
+    printf("Dollar %d is %g Rupee", amount, dolar);
 }
 
 void lenconvertor()
@@ -764,7 +819,7 @@ void lenconvertor()
     }
 }
 
-//weight convertor
+// weight convertor
 void weightconvertor()
 {
     int a;
@@ -840,7 +895,7 @@ void gramounc()
     printf("%.2f Grams is %.2f Ounces", grams, ounces);
 }
 
-//time convertor
+// time convertor
 void timeconvertor()
 {
     int a;
@@ -851,7 +906,7 @@ void timeconvertor()
         scanf("%d", &a);
 
         if (a != 1 && a != 2)
-            
+
         {
             error();
         }
@@ -867,12 +922,6 @@ void timeconvertor()
         minhr();
         break;
     }
-}
-void error()
-{
-    printf("Enter right command\n");
-    while (getchar() != '\n')
-        ;
 }
 void secmin()
 {
@@ -904,7 +953,7 @@ void secmin()
         } while (v != 1);
 
         float min = sec / 60;
-        printf("%.2f Seconds is %.2f Minutes",sec, min);
+        printf("%.2f Seconds is %.2f Minutes", sec, min);
 
         // further conversion
         char c;
@@ -924,7 +973,7 @@ void secmin()
         case 'Y':
         case 'y':
         {
-            float hr = sec/ 3600;
+            float hr = sec / 3600;
             printf("%.2f Seconds is %.2f Hours", sec, hr);
             break;
         }
@@ -935,7 +984,7 @@ void secmin()
             printf("Okay");
             break;
         }
-           
+
         break;
         }
 
@@ -955,8 +1004,8 @@ void secmin()
             }
         } while (v != 1);
 
-        float sec =min*60;
-        printf("%.2f Minutes is %.2f Seconds",min, sec);
+        float sec = min * 60;
+        printf("%.2f Minutes is %.2f Seconds", min, sec);
 
         // further conversion
         char c;
@@ -976,7 +1025,7 @@ void secmin()
         case 'Y':
         case 'y':
         {
-            float hr = min/60;
+            float hr = min / 60;
             printf("%.2f Minutes is %.2f Hours", min, hr);
             break;
         }
@@ -987,7 +1036,6 @@ void secmin()
             printf("Okay");
             break;
         }
-            
 
         break;
         }
@@ -995,7 +1043,7 @@ void secmin()
         break;
     }
 
-        break;
+    break;
     }
 }
 void minhr()
@@ -1028,7 +1076,7 @@ void minhr()
         } while (v != 1);
 
         float hr = min / 60;
-        printf("%.2f Minutes is %.2f Hour",min, hr);
+        printf("%.2f Minutes is %.2f Hour", min, hr);
 
         // further conversion
         char c;
@@ -1048,7 +1096,7 @@ void minhr()
         case 'Y':
         case 'y':
         {
-            float sec = min*60;
+            float sec = min * 60;
             printf("%.2f Minutes is %.2f Seconds", min, sec);
             break;
         }
@@ -1059,7 +1107,7 @@ void minhr()
             printf("Okay");
             break;
         }
-           
+
         break;
         }
 
@@ -1079,8 +1127,8 @@ void minhr()
             }
         } while (v != 1);
 
-        float min = hr*60;
-        printf("%.2f Hours is %.2f Minutes",hr, min);
+        float min = hr * 60;
+        printf("%.2f Hours is %.2f Minutes", hr, min);
 
         // further conversion
         char c;
@@ -1100,7 +1148,7 @@ void minhr()
         case 'Y':
         case 'y':
         {
-            float sec = hr*3600;
+            float sec = hr * 3600;
             printf("%.2f Hours is %.2f Seconds", hr, sec);
             break;
         }
@@ -1111,7 +1159,6 @@ void minhr()
             printf("Okay");
             break;
         }
-            
 
         break;
         }
@@ -1119,7 +1166,14 @@ void minhr()
         break;
     }
 
-        break;
+    break;
     }
 }
 
+// error msg and cleaner
+void error()
+{
+    printf("\nERROR, Enter right command\n");
+    while (getchar() != '\n')
+        ;
+}

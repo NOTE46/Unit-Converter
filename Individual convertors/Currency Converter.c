@@ -47,24 +47,32 @@ int main()
             printf("1. Convert another currency\n");
             printf("2. Exit program\n");
             printf("Enter choice (1 or 2): ");
-            scanf("%d", &choice);
+            int a = scanf("%d", &choice);
 
-            if (choice == 1)
+            if (a != 1)
             {
-                cs = 1;
-                break;
-            }
-            else if (choice == 2)
-            {
-                printf("Conversion complete. Thank you for using the currency converter.");
-                cs = 0;
-                break;
+                printf("ERROR, Enter right command\n");
+                while (getchar() != '\n');
             }
             else
             {
-                printf("Invalid choice! Please enter 1 or 2.\n");
-            }
 
+                if (choice == 1)
+                {
+                    cs = 1;
+                    break;
+                }
+                else if (choice == 2)
+                {
+                    printf("Conversion complete. Thank you for using the currency converter.");
+                    cs = 0;
+                    break;
+                }
+                else
+                {
+                    printf("Invalid choice! Please enter 1 or 2.\n");
+                }
+            }
         } while (choice != 1 && choice != 2);
     }
     return 0;
@@ -77,7 +85,7 @@ void dollar()
     scanf("%d", &amount);
     float dolar = amount / 84.0;
 
-    printf("Rupee %d is %g Dollar", amount, dolar);
+    printf("Rupee %d is %g Dollar\n", amount, dolar);
 }
 
 void rupee()
