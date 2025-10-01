@@ -309,9 +309,7 @@ void currconvertor()
 
             if (a != 1)
             {
-                printf("ERROR, Enter right command\n");
-                while (getchar() != '\n')
-                    ;
+                error();
             }
             else
             {
