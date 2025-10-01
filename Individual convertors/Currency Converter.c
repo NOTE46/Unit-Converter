@@ -3,9 +3,15 @@
 
 void dollar();
 void rupee();
+void error();
+void rate();
+
+float rates;
 
 int main()
 {
+    rate();
+
     int cs = 1;
     while (cs == 1)
     {
@@ -52,7 +58,8 @@ int main()
             if (a != 1)
             {
                 printf("ERROR, Enter right command\n");
-                while (getchar() != '\n');
+                while (getchar() != '\n')
+                    ;
             }
             else
             {
@@ -80,20 +87,64 @@ int main()
 
 void dollar()
 {
-    int amount;
-    printf("Enter amount in rupee: ");
-    scanf("%d", &amount);
-    float dolar = amount / 84.0;
+    double amount;
+    int d;
+    do
+    {
+        printf("Enter amount in rupee: ");
+         d = scanf("%lf", &amount);
 
-    printf("Rupee %d is %g Dollar\n", amount, dolar);
+        if (d != 1)
+        {
+            error();
+        }
+    } while (d != 1);
+
+        double dolar = amount / rates;
+
+    printf("Rupee %lf is %lf Dollar\n", amount, dolar);
 }
 
 void rupee()
 {
-    int amount;
-    printf("Enter amount in Dollar: ");
-    scanf("%d", &amount);
-    float dolar = amount * 84.0;
+    double amount;
+    int r;
+    do
+    {
+        printf("Enter amount in Dollar: ");
+    r=scanf("%lf", &amount);
+     if (r != 1)
+        {
+            error();
+        }
+    } while (r != 1);
+    
+    
+    double dolar = amount * rates;
 
-    printf("Dollar %d is %g Rupee", amount, dolar);
+    printf("Dollar %lf is %lf Rupee", amount, dolar);
+}
+
+void error()
+{
+    printf("\nERROR, Enter right command\n");
+    while (getchar() != '\n')
+        ;
+}
+
+void rate()
+{
+    int r;
+    do {
+
+    printf ("Enter current exchange rate in INR: ");
+    r =scanf("%f",&rates);
+
+    if (r!=1)
+    {
+        error();
+    }
+}while (r!=1);
+
+printf ("The exchange rate entered is %f INR",rates);
 }
