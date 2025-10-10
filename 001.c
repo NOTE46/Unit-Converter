@@ -16,6 +16,7 @@ void secmin();
 void minhr();
 void dollar();
 void rupee();
+void rate();
 
 int main()
 {
@@ -74,7 +75,7 @@ int main()
             do
             {
                 printf("\nWhat would you like to do?\n");
-                printf("1. Convert again\n");
+                printf("1. Switch to another convertor\n");
                 printf("2. Exit program\n");
                 printf("Enter choice (1 or 2): ");
                 scanf("%d", &choice1);
@@ -86,6 +87,7 @@ int main()
                 }
                 else if (choice1 == 2)
                 {
+                    printf("Conversion complete. Thank you for using the currency converter.");
                     loop = 0;
                     break;
                 }
@@ -262,8 +264,11 @@ void tempconvertor()
 }
 
 // currency convertor
+double rates;
 void currconvertor()
 {
+   rate();
+
     int cs = 1;
     while (cs == 1)
     {
@@ -322,7 +327,6 @@ void currconvertor()
                 else if (choice == 2)
                 {
                     printf("Conversion complete. Thank you for using the currency converter.");
-                    cs = 0;
                     break;
                 }
                 else
@@ -335,21 +339,57 @@ void currconvertor()
 }
 void dollar()
 {
-    int amount;
-    printf("Enter amount in rupee: ");
-    scanf("%d", &amount);
-    float dolar = amount / 84.0;
+  double amount;
+    int d;
+    do
+    {
+        printf("Enter amount in rupee: ");
+         d = scanf("%lf", &amount);
 
-    printf("Rupee %d is %g Dollar", amount, dolar);
+        if (d != 1)
+        {
+            error();
+        }
+    } while (d != 1);
+
+        double dolar = amount / rates;
+
+    printf("Rupee %.2lf is %.2lf Dollar\n", amount, dolar);
 }
 void rupee()
 {
-    int amount;
-    printf("Enter amount in Dollar: ");
-    scanf("%d", &amount);
-    float dolar = amount * 84.0;
+    double amount;
+    int r;
+    do
+    {
+        printf("Enter amount in Dollar: ");
+    r=scanf("%lf", &amount);
+     if (r != 1)
+        {
+            error();
+        }
+    } while (r != 1);
+    
+    
+    double dolar = amount * rates;
 
-    printf("Dollar %d is %g Rupee", amount, dolar);
+    printf("Dollar %.2lf is %.2lf Rupee\n", amount, dolar);
+}
+void rate()
+{
+    int r;
+    do {
+
+    printf ("Enter current exchange rate in INR: ");
+    r =scanf("%lf",&rates);
+
+    if (r!=1)
+    {
+        error();
+    }
+}while (r!=1);
+
+printf ("The exchange rate entered is %.2lf INR.\n",rates);
 }
 
 void lenconvertor()

@@ -57,9 +57,7 @@ int main()
 
             if (a != 1)
             {
-                printf("ERROR, Enter right command\n");
-                while (getchar() != '\n')
-                    ;
+               error();
             }
             else
             {
@@ -72,7 +70,6 @@ int main()
                 else if (choice == 2)
                 {
                     printf("Conversion complete. Thank you for using the currency converter.");
-                    cs = 0;
                     break;
                 }
                 else
