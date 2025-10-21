@@ -1,27 +1,108 @@
 #include <stdio.h>
 
+void error();
+void inputkey();
+void kilometer();
+void meter();
+void centimeter();
+void miles ();
+void Inches ();
+void Feet ();
+
+int input,i;
+
 int main() {
 
 int cont =1;
 while (cont==1)
 {
-int input,i;
-
-    printf ("INPUTS KEYS-\nKilometer-1\nMeter-2\nCentimeter-3\nMiles-4\nInches-5\nFeet-6\nEnter input key:");
+    inputkey();
     scanf("%d",&input);
 
     if (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6)
     {
         printf ("ERROR enter correct key\n");
-        return 1;
+        continue;
     }
     else 
     {
         switch (input)
         {
             case 1: 
+            kilometer();
+            break;
+            
+            case 2: 
+            meter();  
+            break;
+            
+            case 3: 
+            centimeter();
+            break;
+            
+            case 4: 
+            miles();
+            break;
+            
+            case 5: 
+            Inches();
+            break;
+            
+            case 6: 
             { 
-                int c;
+            Feet();    
+            break;
+            }
+        }
+    }
+
+int choice; 
+    do{
+    printf("\nWhat would you like to do?\n");
+    printf("1. Convert another distance\n");
+    printf("2. Exit program\n");
+    printf("Enter choice (1 or 2): ");
+    scanf("%d", &choice);
+
+    if (choice==1)
+    {
+        cont=1;
+        break;
+    }
+    else if (choice==2)
+    {
+        cont=0;
+        break;
+    }
+    else 
+    {
+        printf("Invalid choice! Please enter 1 or 2.\n");
+        continue;
+    }
+}
+while (choice !=1 && choice !=2);
+
+}
+    return 0;
+
+}
+
+//UTILITY
+void error()
+{
+    printf("\nERROR, Enter right command\n");
+    while (getchar() != '\n')
+        ;
+}
+void inputkey()
+{
+printf ("INPUTS KEYS-\nKilometer-1\nMeter-2\nCentimeter-3\nMiles-4\nInches-5\nFeet-6\nEnter input key:");
+}
+
+//MAIN
+void kilometer()
+{
+    int c;
                 float k;
                 do 
                 {
@@ -29,13 +110,12 @@ int input,i;
                 i=scanf ("%f",&k);
                     if (i != 1)
                     {
-                        printf ("Error enter correct kilometer\n");
-                        while(getchar() != '\n');
+                        error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nMeter-2\nCentimeter-3\nMiles-4\nInches-5\nFeet-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -84,12 +164,10 @@ int input,i;
                     }
                     
                 }
+}
 
-                break;
-            }
-            case 2: 
-            { 
-                int c;
+void meter(){
+ int c;
                 float m;
                 do 
                 {
@@ -97,13 +175,12 @@ int input,i;
                 i=scanf ("%f",&m);
                     if (i != 1)
                     {
-                        printf ("Error enter correct Meter\n");
-                        while(getchar() != '\n');
+                        error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nKilometer-2\nCentimeter-3\nMiles-4\nInches-5\nFeet-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -152,12 +229,10 @@ int input,i;
                     }
                     
                 }
+}
 
-                break;
-            }
-            case 3: 
-            { 
-                int c;
+void centimeter(){
+int c;
                 float cm;
                 do 
                 {
@@ -165,13 +240,12 @@ int input,i;
                 i=scanf ("%f",&cm);
                     if (i != 1)
                     {
-                        printf ("Error enter correct Centimeter\n");
-                        while(getchar() != '\n');
+                       error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nKilometer-2\nmeter-3\nMiles-4\nInches-5\nFeet-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -221,11 +295,11 @@ int input,i;
                     
                 }
 
-                break;
-            }
-            case 4: 
-            { 
-                int c;
+}
+
+void miles ()
+{
+int c;
                 float miles;
                 do 
                 {
@@ -233,13 +307,12 @@ int input,i;
                 i=scanf ("%f",&miles);
                     if (i != 1)
                     {
-                        printf ("Error enter correct miles\n");
-                        while(getchar() != '\n');
+                        error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nKilometer-2\nmeter-3\nCentimeter-4\nInches-5\nFeet-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -288,12 +361,11 @@ int input,i;
                     }
                     
                 }
+}
 
-                break;
-            }
-            case 5: 
-            { 
-                int c;
+void Inches ()
+{
+int c;
                 float in;
                 do 
                 {
@@ -301,13 +373,12 @@ int input,i;
                 i=scanf ("%f",&in);
                     if (i != 1)
                     {
-                        printf ("Error enter correct Inches\n");
-                        while(getchar() != '\n');
+                       error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nKilometer-2\nmeter-3\nMiles-4\nCentimeter-5\nFeet-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -356,12 +427,11 @@ int input,i;
                     }
                     
                 }
+}
 
-                break;
-            }
-            case 6: 
-            { 
-                int c;
+void Feet ()
+{
+    int c;
                 float ft;
                 do 
                 {
@@ -369,13 +439,12 @@ int input,i;
                 i=scanf ("%f",&ft);
                     if (i != 1)
                     {
-                        printf ("Error enter correct Feet\n");
-                        while(getchar() != '\n');
+                       error();
                     }
                 } while (i != 1);
                  
                 do {
-                printf("Convert to:\nKilometer-2\nmeter-3\nMiles-4\nCentimeter-5\nInches-6\nEnter output key:");
+                inputkey();
                 scanf("%d",&c);
                 
                 if (c != 2 && c != 3 && c != 4 && c != 5 && c != 6)
@@ -424,45 +493,4 @@ int input,i;
                     }
                     
                 }
-
-                break;
-            }
-
-
-        }
-
-    }
-
-
-int choice; 
-    {
-
-    do{
-    printf("\nWhat would you like to do?\n");
-    printf("1. Convert another distance\n");
-    printf("2. Exit program\n");
-    printf("Enter choice (1 or 2): ");
-    scanf("%d", &choice);
-
-    if (choice==1)
-    {
-        cont=1;
-        break;
-    }
-    else if (choice==2)
-    {
-        cont=0;
-        break;
-    }
-    else 
-    {
-        printf("Invalid choice! Please enter 1 or 2.\n");
-        return 1;
-    }
-}
-while (choice !=1 && choice !=2);
-}
-}
-    return 0;
-
 }
