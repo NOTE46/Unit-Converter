@@ -1,6 +1,6 @@
 # Unit Converter in C
 
-## 📌 Project Overview
+##  Project Overview
 This is a **console-based unit converter** written in C.  
 It allows conversion between different units of **temperature, currency, length, weight, and time**.  
 The program is menu-driven, validates user input, and prevents invalid entries.  
